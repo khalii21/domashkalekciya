@@ -18,6 +18,19 @@ BiList<T> * begin(T * array)
 }
 
 template< class T >
+void clear(BiList<T> * h)
+{
+  BiList<T> * curr = h->next;
+  while (curr != h)
+  {
+    BiList<T> * node = curr->next;
+    delete curr;
+    curr = node;
+  }
+  delete h;
+}
+
+template< class T >
 BiList<T> * convert(const T * array, size_t s)
 {
   BiList<T> * h = begin(array);
@@ -26,12 +39,12 @@ BiList<T> * convert(const T * array, size_t s)
   try
   {
     curr = h;
-    for(size_t i = 1; i < s-1; i++)
+    for(size_t i = 1; i < s; i++)
     {
-      node = new BiList<T> {array[i]; h; curr};
+      node = new BiList<T> {array[i], h, curr};
       curr->next = node;
       h->prev = node;
-      current = node;
+      curr = node;
     }
   }
   catch(...)
