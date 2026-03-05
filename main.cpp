@@ -1,5 +1,11 @@
 #include <iostream>
 
+/*
+Неявный интерфейс:
+  Т должен иметь конструктор копирования
+  Т должен иметь перегрузку оператора []
+*/
+
 template< class T >
 struct BiList
 {
@@ -54,9 +60,6 @@ BiList<T> * convert(const T * array, size_t s)
   }
   return h;
 }
-
-
-
 
 int main()
 {}
