@@ -24,6 +24,19 @@ BiList<T> * begin(T * array)
 }
 
 template< class T >
+size_t count(const BiList<T> * h)
+{
+  size_t res = 0;
+  const BiList<T> * curr = h->next;
+  while(curr!=head)
+  {
+    count++;
+    curr = curr->next;
+  }
+  return res;
+}
+
+template< class T >
 void clear(BiList<T> * h)
 {
   BiList<T> * curr = h->next;
